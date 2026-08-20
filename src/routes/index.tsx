@@ -139,6 +139,7 @@ function Index() {
   }, []);
 
   const bandIndex = Math.min(bands.length - 1, Math.floor(progress * bands.length * 1.02));
+  const band = bands[bandIndex] ?? bands[0]!;
 
   return (
     <div dir="rtl" className="bg-background">
@@ -192,12 +193,12 @@ function Index() {
 
             <div className="absolute inset-x-0 bottom-24 px-6" style={{ opacity: progress > 0.12 ? 1 : 0, transition: "opacity .4s" }}>
               <div className="mx-auto max-w-xl">
-                <p className="label-mono mb-2 text-primary">{bands[bandIndex].kicker}</p>
+                <p className="label-mono mb-2 text-primary">{band.kicker}</p>
                 <h2 className="text-glow text-2xl font-bold sm:text-3xl">
-                  {bands[bandIndex].title}
+                  {band.title}
                 </h2>
                 <p className="mt-3 text-sm text-muted-foreground sm:text-base">
-                  {bands[bandIndex].body}
+                  {band.body}
                 </p>
               </div>
             </div>
